@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    /*box-sizing: border-box;*/
+}
+
+html{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.panel_container{
+    width: 100%;
+    height: 100vh;
+    /* background: linear-gradient(to bottom, #0074e2 30%, rgb(0, 142, 145) 100%); */
+    background: white;
+    position: relative;
+    padding-top: 30px;
+    box-sizing: border-box;
+}
+
+/* ================================================= */
+
+.panel_container .nav-bar{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    /* background: rgba(29, 33, 61, 1); */
+    background: #29323c;
+    padding: 0 60px;
+    box-sizing: border-box;
+}
+
+.panel_container .nav-bar .logo{
+    width: 155px;
+    transition: .3s width;
+}
+
+.panel_container .nav-bar .logo h1{
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+    color: white;
+    display: inline;
+    transition: .3s linear all;
+}
+
+.panel_container .nav-bar .logo h1:hover{
+    color: darkturquoise;
+}
+
+.panel_container nav{
+    flex: 1;
+}
+
+.panel_container nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin-right: 60px;
+}
+
+.panel_container nav ul li a{
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+/* ================================================= */
+
+.panel_container .nav-list ul a::after{
+    content: attr(data-after);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: rgba(0, 206, 209, 0.2);
+    font-size: 8rem;
+    letter-spacing: 50px;
+    z-index: -1;
+    transition: .3s ease letter-spacing;
+}
+.panel_container .nav-list ul li:hover a::after{
+    transform: translate(-50%, -50%) scale(1);
+    letter-spacing: .1rem;
+}
+.panel_container .nav-list ul li:hover a{
+    color: darkturquoise;
+}
+.panel_container .hamburger{
+    height: 60px;
+    width: 60px;
+    display: inline-block; 
+    display: none;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    cursor: pointer;
+    transform: scale(.8);
+    margin-right: 20px;
+}
+.panel_container .hamburger::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 3px solid darkturquoise;
+    animation: hamburger_pulse 1s ease infinite;
+}
+.panel_container .hamburger .bar{
+    height: 2px;
+    width: 30px;
+    position: relative;
+    background-color: white;
+    z-index: -1;
+}
+.panel_container .hamburger .bar::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    transition: .3s ease;
+    transition-property: top, bottom;
+    opacity: .6;
+}
+.panel_container .hamburger .bar::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    transition: .3s ease;
+    transition-property: top, bottom;
+}
+.panel_container .hamburger .bar::after{
+    top: 8px;
+}
+.panel_container .hamburger .bar::before{
+    bottom: 8px;
+}
+.panel_container .hamburger.active .bar::after{
+    top: 0;
+    background-color: darkturquoise;
+}
+.panel_container .hamburger.active .bar::before{
+    bottom: 0;
+    background-color: darkturquoise;
+}
+
+/* ================================================= */
+
+.panel_container .user{
+    display: flex;
+    align-items: center;    
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.panel_container .user:hover{
+    color: darkturquoise;
+}
+
+.panel_container .user img{
+    width: 40px;
+    margin-left: 25px;
+}
+
+/* Lista del Menu */
+
+.panel_container .side-bar{
+    width: 155px;
+    height: 100vh;
+    /* background: rgba(29, 31, 58, 1); */
+    background: #29323c;
+    position: absolute;
+    top: 0;
+    left: -20vh;
+    transition: 1s ease left;
+}
+
+.panel_container .side-bar.active{
+    left: 0;
+}
+
+.panel_container .search-icon{
+    width: 30px;
+    display: block;
+    margin: 120px auto 0;
+    filter: invert(100%);
+    opacity: .6;
+}
+
+.panel_container .menu-list{
+    width: 20px;
+    display: block;
+    margin: 220px 10px 0;
+    text-align: center;
+}
+
+.panel_container .menu-list p{
+    height: 15px;
+    margin-bottom: 50px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.panel_container .go-home{
+    width: 40px;
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    filter: invert(100%);
+    cursor: pointer;
+}
+
+/* Lista del Menu */
+
+/* Media Query para Escritorio */
+@media only screen and (min-width: 1200px){
+    .panel_container .hamburger{
+        display: none;
+    }
+    .panel_container .nav-list ul{
+        position: initial;
+        display: block;
+        height: auto;
+        width: fit-content;
+        background-color: transparent;
+    }
+    .panel_container .nav-list ul li{
+        display: inline-block;
+    }
+}

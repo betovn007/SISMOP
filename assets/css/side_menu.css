@@ -1,0 +1,136 @@
+.menu-sidebar{
+    position: fixed;
+    left: -240px;
+    width: 240px;
+    height: 100%;
+    background: #29323c;
+    transition: all .5s ease;
+    z-index: 900;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.menu-sidebar header{
+    color: white;
+    font-size: 28px;
+    line-height: 70px;
+    text-align: center;
+    background: #29323c;
+    user-select: none;
+    font-family: inherit;
+} 
+
+.menu-sidebar a{
+    display: block;
+    color: white;
+    height: 65px;
+    width: 100%;
+    line-height: 65px;
+    padding-left: 30px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    border-top: 1px solid black;
+    border-left: 5px solid transparent;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 1.2rem;
+    transition: all .5s ease;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.menu-sidebar a:hover, .menu-sidebar a.active{
+    border-left: 5px solid darkturquoise;
+    color: darkturquoise;
+}
+
+.menu-sidebar a i{
+    font-size: 23px;
+    margin-right: 16px;
+}
+
+.menu-sidebar a span{
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-transform: uppercase;
+    user-select: none;
+}
+
+#open-menu{
+    display: none;
+}
+
+.oc-menu #btn-menu, .oc-menu #cancel-menu{
+    position: fixed;
+    cursor: pointer;
+    background: #29323c;
+    width: 45px;
+    text-align: center;
+    line-height: 45px;
+    color: white;
+    font-size: 29px;
+    border-radius: 3px;
+    margin: 15px 30px;
+    border: 1px solid #29323c;
+    transition: all .5s ease;
+    z-index: 900;
+}
+
+.oc-menu #cancel-menu{
+    opacity: 0;
+    visibility: hidden;
+}
+
+#open-menu:checked ~ .oc-menu #btn-menu{
+    margin-left: 245px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#open-menu:checked ~ .oc-menu #cancel-menu{
+    margin-left: 245px;
+    opacity: 1;
+    visibility: visible;
+}
+
+#open-menu:checked ~ .menu-sidebar{
+    left: 0;
+}
+
+@media (max-width: 860px){
+
+    .menu-sidebar{
+        height: auto;
+        width: 70px;
+        left: 0;
+        margin: 20px 0;
+        overflow-y: initial;
+        overflow-x: initial;
+    }
+
+    .menu-sidebar header, .oc-menu #btn-menu, .oc-menu #cancel-menu{
+        display: none;
+    }
+
+    .menu-sidebar a span{
+        position: absolute;
+        margin-left: 24px;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .menu-sidebar a i{
+        margin-left: -10px;
+    }
+
+    .menu-sidebar a:hover{
+        width: 200px;
+        background: inherit;
+    }
+
+    .menu-sidebar a:hover span{
+        opacity: 1;
+        visibility: visible;
+    }
+
+}
