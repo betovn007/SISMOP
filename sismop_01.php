@@ -230,7 +230,7 @@
                                 </div>
                             </div>
                             <div class="inline-block-list">
-                                <p data-name="areaDEA" class="titles <?php echo "titles-filled"; ?>">Área o Coordinación:</p>
+                                <p data-name="areaDEA" class="titles <?php echo "titles-filled"; ?>">Unidad Responsable:</p>
                                 <div class="box">
                                     <select name="areaDEA" id="areaDEA" class="select-input">
                                         <option value="" selected>Seleccione  una opción</option>
